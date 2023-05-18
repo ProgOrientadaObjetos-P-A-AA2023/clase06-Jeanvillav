@@ -1,105 +1,111 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package paquete01;
-
 /**
- *
- * @author reroes
- */
+*
+* @author reroes
+*/
+import paquete04.Colegio;
+
 public class LibretaCalificacion {
 
-    private String estudiante;
-    private double promedio;
-    private String promedioCualitativo;
-    private double[] calificaciones;
-    // private Colegio c;
+private String estudiante;
+private double promedio;
+private String promedioCualitativo;
+private double[] calificaciones;
+private Colegio colegio;
 
-    public LibretaCalificacion(String n, double[] c) {
-        estudiante = n;
-        calificaciones = c;
-    }
+public LibretaCalificacion(String n, double[] c, Colegio x) {
+estudiante = n;
+calificaciones = c;
+colegio = x;
+}
 
-    public void establecerEstudiante(String n) {
-        estudiante = n;
-    }
+public void establecerColegio(Colegio c) {
+colegio = c;
+}
 
-    public void establecerPromedio() {
-        double suma = 0;
+public Colegio obtenerColegio() {
+return colegio;
+}
 
-        // for (int i = 0; i < calificaciones.length; i++) {
-        for (int i = 0; i < obtenerCalificaciones().length; i++) {
-            suma = suma + obtenerCalificaciones()[i];
-        }
+public void establecerEstudiante(String n) {
+estudiante = n;
+}
 
-        promedio = suma / obtenerCalificaciones().length;
-    }
+public void establecerPromedio() {
+double suma = 0;
 
-    public void establecerPromedioCualitativo() {
-        if ((obtenerPromedio() >= 0) && (obtenerPromedio() <= 3.09)) {
-            promedioCualitativo = "Regular";
-        } else {
-            if ((obtenerPromedio() >= 3.1) && (obtenerPromedio() <= 5.09)) {
-                promedioCualitativo = "Insuficiente";
-            } else {
-                if ((obtenerPromedio() >= 5.1) && (obtenerPromedio() <= 7.09)) {
-                    promedioCualitativo = "Bueno";
-                } else {
-                    if ((obtenerPromedio() >= 7.1) && (obtenerPromedio() <= 9.09)) {
-                        promedioCualitativo = "Muy bueno";
-                    } else {
-                        if ((obtenerPromedio() >= 9.1) && (obtenerPromedio() <= 10)) {
-                            promedioCualitativo = "Sobresaliente";
-                        } else {
-                            promedioCualitativo = "Sin rango";
-                        }
-                    }
-                }
-            }
-        }
-    }
+// for (int i = 0; i < calificaciones.length; i++) {
+for (int i = 0; i < obtenerCalificaciones().length; i++) {
+suma = suma + obtenerCalificaciones()[i];
+}
 
-    public void establecerCalificaciones(double[] n) {
-        calificaciones = n;
-    }
+promedio = suma / obtenerCalificaciones().length;
+}
 
-    public String obtenerEstudiante() {
-        return estudiante;
-    }
+public void establecerPromedioCualitativo() {
+if ((obtenerPromedio() >= 0) && (obtenerPromedio() <= 3.09)) {
+promedioCualitativo = "Regular";
+} else {
+if ((obtenerPromedio() >= 3.1) && (obtenerPromedio() <= 5.09)) {
+promedioCualitativo = "Insuficiente";
+} else {
+if ((obtenerPromedio() >= 5.1) && (obtenerPromedio() <= 7.09)) {
+promedioCualitativo = "Bueno";
+} else {
+if ((obtenerPromedio() >= 7.1) && (obtenerPromedio() <= 9.09)) {
+promedioCualitativo = "Muy bueno";
+} else {
+if ((obtenerPromedio() >= 9.1) && (obtenerPromedio() <= 10)) {
+promedioCualitativo = "Sobresaliente";
+} else {
+promedioCualitativo = "Sin rango";
+}
+}
+}
+}
+}
+}
 
-    public double obtenerPromedio() {
-        return promedio;
-    }
+public void establecerCalificaciones(double[] n) {
+calificaciones = n;
+}
 
-    public String obtenerPromedioCualitativo() {
-        return promedioCualitativo;
-    }
+public String obtenerEstudiante() {
+return estudiante;
+}
 
-    public double[] obtenerCalificaciones() {
-        return calificaciones;
-    }
+public double obtenerPromedio() {
+return promedio;
+}
 
-    @Override
-    public String toString() {
-        String cadena = "Libreta de Calificaciones\n";
-        cadena = String.format("%sNombre: %s\nCalificaciones:\n", cadena,
-                obtenerEstudiante());
-        // cadena = String.format("%sNombre: %s\nCalificaciones:\n", cadena,
-        //        estudiante);
-        
-        for (int i = 0; i < obtenerCalificaciones().length; i++) {
-            cadena = String.format("%s\t\t%.2f\n", cadena,
-                    obtenerCalificaciones()[i]);
-        }
-        // cadena = String.format("%sPromedio calificaciones: %.2f\n"
-        //         + "Promedio cuantitativo: %s\n",
-        //        cadena, obtenerPromedio(), obtenerPromedioCualitativo());
-        
-        cadena = String.format("%sPromedio calificaciones: %.2f\n"
-                 + "Promedio cuantitativo: %s\n",
-                cadena, promedio, promedioCualitativo);
-        return cadena;
-    }
+public String obtenerPromedioCualitativo() {
+return promedioCualitativo;
+}
+
+public double[] obtenerCalificaciones() {
+return calificaciones;
+}
+
+@Override
+public String toString() {
+String cadena = "Libreta de Calificaciones\n";
+cadena = String.format("%sColegio: %S\nCiudad: %S\nNombre: "
++ "%s\nCalificaciones:\n", cadena, colegio.obtenerNombre(),
+colegio.obtenerCiudad(), obtenerEstudiante());
+// cadena = String.format("%sNombre: %s\nCalificaciones:\n", cadena,
+// estudiante);
+
+for (int i = 0; i < obtenerCalificaciones().length; i++) {
+cadena = String.format("%s\t\t%.2f\n", cadena,
+obtenerCalificaciones()[i]);
+}
+// cadena = String.format("%sPromedio calificaciones: %.2f\n"
+// + "Promedio cuantitativo: %s\n",
+// cadena, obtenerPromedio(), obtenerPromedioCualitativo());
+
+cadena = String.format("%sPromedio calificaciones: %.2f\n"
++ "Promedio cuantitativo: %s\n",
+cadena, promedio, promedioCualitativo);
+return cadena;
+}
 }

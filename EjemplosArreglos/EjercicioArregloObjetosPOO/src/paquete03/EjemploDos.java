@@ -17,9 +17,10 @@ public class EjemploDos {
         
         for (int i = 0; i < calificaciones.length; i++) {
             Calificacion objetoCalificacion = calificaciones[i];
-            System.out.printf("%s - %.2f\n", 
+            System.out.printf("%s - %.2f\n %.2f con profesor %s\n", 
                     objetoCalificacion.obtenerNombreMateria(),
-                    objetoCalificacion.obtenerNota());
+                    objetoCalificacion.obtenerNota(),
+            objetoCalificacion.obtenerProfesor().obtenerNombre());
         }
         
     }
